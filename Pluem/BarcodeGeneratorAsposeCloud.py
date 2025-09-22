@@ -7,7 +7,8 @@ from aspose_barcode_cloud.rest import ApiException
 client_id = "910ab854-5651-4660-aa80-2b2359cda6aa"
 client_secret = "d945c8909ef4e578e99afaae5644a8a7"
 
-# Path ของไฟล์ Excel
+# Pa
+# th ของไฟล์ Excel
 excel_file_path = r"E:\Download\CAI CAMP 2025\July\7.July\สรุปบัญชี คูปอง รอบ ก.ค.68 (Line)โอม.xlsx"
 output_dir = r"E:\Download\CAI CAMP 2025\July\7.July\Barcodes_AsposeCloud"
 os.makedirs(output_dir, exist_ok=True)
