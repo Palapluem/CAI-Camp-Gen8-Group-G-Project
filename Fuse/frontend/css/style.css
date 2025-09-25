@@ -15,7 +15,7 @@ body {
 }
 
 .navbar {
-    background-color: #121212; 
+    background-color: #111418;
     padding: 15px 0;
     border-bottom: 1px solid #333;
 }
@@ -27,58 +27,101 @@ body {
 }
 
 
-/* Home Content */
-/*.icon-placeholder {
-    font-size: 70px;
-    color: #333;
-    animation: rotateIcon 2s infinite;
+/*index page*/
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,"Helvetica Neue";
+  background:#0f1115;
+  color:#e9ecf4;
 }
 
-@keyframes rotateIcon {
-    0% { transform: rotate(0deg); }
-    50% { transform: rotate(180deg); }
-    100% { transform: rotate(360deg); }
+:root{
+  --logo-size:56px;
+  --title-size:clamp(28px,3.2vw,44px);
+  --gap:5ch;         
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.index.content .container{
+  min-height:100dvh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 24px;
+  text-align:center;
 }
 
-.container h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
+.promotion-automation-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:26px;
 }
 
-.container p {
-    font-size: 18px;
-    margin-bottom: 20px;
+.hero{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:var(--gap);     
 }
 
-.container button {
-    font-size: 18px;
-    padding: 16px 32px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.icon-placeholder{
+  width:var(--logo-size);
+  height:var(--logo-size);
+  border-radius:12px;
+  background:#222733;
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 16px rgba(0,0,0,.28);
+  flex:0 0 auto;
 }
 
-.container button:hover {
-    background-color: #0056b3;
+.icon-placeholder::before{
+  content:"[||]";
+  font-size:calc(var(--logo-size) * 0.47);
+  line-height:1;
 }
 
-.icon-placeholder::before {
-    content: '[||]';
-    font-size: 60px;
-    color: white;
-    margin-bottom: 30px;
-}*/
+.title{
+  margin:0;
+  font-weight:650;
+  font-size:var(--title-size);
+  line-height:1.15;
+  white-space:nowrap;
+}
+
+.subtitle{
+  margin:0 auto;
+  max-width:820px;
+  font-size:clamp(15px,1.6vw,18px);
+  line-height:1.7;
+  color:#a9b0bc;
+}
+
+.btn-primary{
+  display:inline-block;
+  font-size:18px;
+  padding:14px 28px;
+  background:#1a73e8;
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  text-decoration:none;
+  box-shadow:0 12px 36px rgba(0,0,0,.35);
+  transition:transform .06s ease, background-color .15s ease;
+}
+.btn-primary:hover{background:#155fc4}
+.btn-primary:active{transform:translateY(1px)}
+
+.navbar{background:transparent}
+
+@media (max-width:520px){
+  :root{--logo-size:48px;--gap:10px}
+  .title{white-space:normal;text-align:center}
+}
 
 
 /*Login page*/
@@ -154,7 +197,6 @@ body{
 
         
 /*Timeline page*/
-
 body {
     background-color: #121212; 
     color: #e0e0e0;
@@ -168,7 +210,6 @@ body {
     min-height: 100vh;
 }
 
-/* Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -384,6 +425,13 @@ body {
 
 .recent-activity tbody tr:hover {
     background-color: #2a2a2a;
+}
+
+.icon-placeholder::before {
+    content: '[||||]';
+    font-size: 60px;
+    color: white;
+    margin-bottom: 30px;
 }
 
 /* Status Badges */
