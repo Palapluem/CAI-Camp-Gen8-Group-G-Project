@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promotion Automation - Home</title>
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Promotion Automation - Home</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<script>
-    document.querySelector('.btn-primary').addEventListener('click', function() {
-        window.location.href = 'login.html';
-    });
-</script>
+
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <span class="navbar-brand">1.Home</span>
-            </div>
-        </nav>
-    </header>
 
-    <main class="home-content">
-        <div class="container">
-            <div class="promotion-automation-card">
-                <div class="icon-placeholder">
-                    <i class="fas fa-chart-line fa-4x"></i> 
-                </div>
-                <h1>Promotion Automation</h1>
-                <p>เว็บไซต์สำหรับติดตามโปรโมชัน และสร้างโปรโมชันพร้อมบาร์โค้ดแบบครอบคลุมทุกวงจร</p>
-                <button class="btn-primary">Let started</button>
-            </div>
-        </div>
-    </main>
 
+  <main class="home-content">
+    <div class="container">
+      <div class="promotion-automation-card">
+        <div class="icon-placeholder"></div>
+
+        <h1 class="title">Promotion Automation</h1>
+        <p class="subtitle">
+          เว็บไซต์สำหรับติดตามโปรโมชัน และสร้างโปรโมชันพร้อมบาร์โค้ดแบบครอบคลุมทุกวงจร
+        </p>
+
+        <button class="btn-primary" type="button">Let started</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.querySelector('.btn-primary');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          window.location.href = 'login.html';
+        });
+      }
+    });
+  </script>
 </body>
 </html>

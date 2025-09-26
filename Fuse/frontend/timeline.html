@@ -9,14 +9,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 </head>
 <body>
-  <!-- NAVBAR -->
   <div class="navbar">
     <div class="navbar-left">
       <div class="logo"><i class="fas fa-robot"></i> PromoAuto</div>
-      <a href="#" class="nav-item active">Timeline</a>
-      <a href="#" class="nav-item">Promotion</a>
-      <a href="#" class="nav-item">AI Guideline</a>
-      <a href="#" class="nav-item">Proof Promotion</a>
+      <!-- เมนูไปหน้าอื่น -->
+      <a href="timeline.html"        class="nav-item">Timeline</a>
+      <a href="promotion.html"       class="nav-item">Promotion</a>
+      <a href="ai-guideline.html"    class="nav-item">AI Guideline</a>
+      <a href="proof-promotion.html" class="nav-item">Proof Promotion</a>
     </div>
     <div class="navbar-right">
       <i class="fas fa-user-circle profile-icon"></i>
@@ -25,102 +25,95 @@
   </div>
 
   <!-- MAIN -->
-  <div class="container">
-    <h1>Welcome to my Workspace !</h1>
+  <main class="page">
+    <div class="container">
+      <h1>Welcome to my Workspace !</h1>
 
-    <!-- ACTIONS -->
-    <div class="action-buttons">
-      <button class="create-task-btn" id="openCreateTaskModal">
-        <i class="fas fa-plus-circle"></i> Create New Task
-      </button>
-      <button class="view-promotion-btn">
-        <i class="fas fa-eye"></i> View All Promotion
-      </button>
+      <!-- ACTIONS -->
+      <div class="action-buttons">
+        <button class="create-task-btn" id="openCreateTaskModal">
+          <i class="fas fa-plus-circle"></i> Create New Task
+        </button>
+        <a class="view-promotion-btn" href="promotion.html">
+          <i class="fas fa-eye"></i> View All Promotion
+        </a>
+      </div>
+
+      <!-- MODAL -->
+      <div id="createTaskModal" class="modal">
+        <div class="modal-sheet">
+          <div class="modal-header">
+            <span class="modal-title">Create New Promotion</span>
+            <button class="close-button" aria-label="Close">&times;</button>
+          </div>
+
+          <form id="promotionForm" class="modal-body">
+            <div class="form-group">
+              <label for="campaignName">Campaign Name</label>
+              <input type="text" id="campaignName" required />
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select id="status" required>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+                <option value="scheduled">Scheduled</option>
+                <option value="draft">Draft</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="date" id="startDate" required />
+              </div>
+              <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input type="date" id="endDate" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="engagement">Engagement (%)</label>
+              <input type="number" id="engagement" min="0" max="100" value="0" required />
+            </div>
+
+            <div class="modal-actions">
+              <button type="button" class="btn-ghost-light" id="cancelCreate">Cancel</button>
+              <button type="submit" class="btn-primary-lg">Add Promotion</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="dashboard-summary">
+        <h2>Dashboard Summary</h2>
+        <div class="summary-cards">
+          <div class="card"><h3>Total Promotion</h3><p id="totalPromotionCount">25</p></div>
+          <div class="card"><h3>Active Promotion</h3><p id="activePromotionCount">12</p></div>
+          <div class="card"><h3>Progress Rate</h3><p id="progressRate">15.5%</p></div>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="recent-activity">
+        <h2>Recent Activity</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Campaign Name</th>
+              <th>Status</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Engagement</th>
+            </tr>
+          </thead>
+          <tbody id="activityTableBody"></tbody>
+        </table>
+      </div>
     </div>
-
-<!-- MODAL -->
-<div id="createTaskModal" class="modal">
-  <div class="modal-sheet">
-    <div class="modal-header">
-      <span class="modal-title">Create New Promotion</span>
-      <button class="close-button" aria-label="Close">&times;</button>
-    </div>
-
-    <form id="promotionForm" class="modal-body">
-      <div class="form-group">
-        <label for="campaignName">Campaign Name</label>
-        <input type="text" id="campaignName" required />
-      </div>
-      <div class="form-group">
-        <label for="status">Status</label>
-        <select id="status" required>
-          <option value="active">Active</option>
-          <option value="completed">Completed</option>
-          <option value="scheduled">Scheduled</option>
-          <option value="draft">Draft</option>
-        </select>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="startDate">Start Date</label>
-          <input type="date" id="startDate" required />
-        </div>
-        <div class="form-group">
-          <label for="endDate">End Date</label>
-          <input type="date" id="endDate" required />
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="engagement">Engagement (%)</label>
-        <input type="number" id="engagement" min="0" max="100" value="0" required />
-      </div>
-
-      <div class="modal-actions">
-        <button type="button" class="btn-ghost-light" id="cancelCreate">Cancel</button>
-        <button type="submit" class="btn-primary-lg">Add Promotion</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-
-    <!-- DASHBOARD SUMMARY -->
-    <div class="dashboard-summary">
-      <h2>Dashboard Summary</h2>
-      <div class="summary-cards">
-        <div class="card">
-          <h3>Total Promotion</h3>
-          <p id="totalPromotionCount">25</p>
-        </div>
-        <div class="card">
-          <h3>Active Promotion</h3>
-          <p id="activePromotionCount">12</p>
-        </div>
-        <div class="card">
-          <h3>Progress Rate</h3>
-          <p id="progressRate">15.5%</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- RECENT ACTIVITY -->
-    <div class="recent-activity">
-      <h2>Recent Activity</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Campaign Name</th>
-            <th>Status</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Engagement</th>
-          </tr>
-        </thead>
-        <tbody id="activityTableBody"></tbody>
-      </table>
-    </div>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
 </html>
+
